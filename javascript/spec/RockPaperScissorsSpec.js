@@ -17,7 +17,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('rock');
         player2.picks('scissors');
-        expect(game.winner()).toBe(player1);
+        game.winner();
+        expect(game.gamewinner).toBe(player1);
 
       });
 
@@ -25,7 +26,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('rock');
         player2.picks('paper');
-        expect(game.winner()).toBe(player2);
+        game.winner();
+        expect(game.gamewinner).toBe(player2);
 
       });
 
@@ -37,7 +39,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('rock');
         player2.picks('lizard');
-        expect(game.winner()).toBe(player1);
+        game.winner();
+        expect(game.gamewinner).toBe(player1);
 
       });
 
@@ -45,7 +48,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('rock');
         player2.picks('Spock');
-        expect(game.winner()).toBe(player2);
+        game.winner();
+        expect(game.gamewinner).toBe(player2);
 
       });
 
@@ -57,7 +61,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('paper');
         player2.picks('rock');
-        expect(game.winner()).toBe(player1);
+        game.winner();
+        expect(game.gamewinner).toBe(player1);
 
       });
 
@@ -65,7 +70,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('paper');
         player2.picks('scissors');
-        expect(game.winner()).toBe(player2);
+        game.winner();
+        expect(game.gamewinner).toBe(player2);
 
       });
 
@@ -78,7 +84,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('paper');
         player2.picks('Spock');
-        expect(game.winner()).toBe(player1);
+        game.winner();
+        expect(game.gamewinner).toBe(player1);
 
       });
 
@@ -86,7 +93,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('paper');
         player2.picks('lizard');
-        expect(game.winner()).toBe(player2);
+        game.winner();
+        expect(game.gamewinner).toBe(player2);
 
       });
 
@@ -98,7 +106,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('scissors');
         player2.picks('paper');
-        expect(game.winner()).toBe(player1);
+        game.winner();
+        expect(game.gamewinner).toBe(player1);
 
       });
 
@@ -106,7 +115,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('scissors');
         player2.picks('rock');
-        expect(game.winner()).toBe(player2);
+        game.winner();
+        expect(game.gamewinner).toBe(player2);
 
       });
 
@@ -118,7 +128,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('scissors');
         player2.picks('lizard');
-        expect(game.winner()).toBe(player1);
+        game.winner();
+        expect(game.gamewinner).toBe(player1);
 
       });
 
@@ -126,7 +137,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('scissors');
         player2.picks('Spock');
-        expect(game.winner()).toBe(player2);
+        game.winner();
+        expect(game.gamewinner).toBe(player2);
 
       });
 
@@ -139,7 +151,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('lizard');
         player2.picks('Spock');
-        expect(game.winner()).toBe(player1);
+        game.winner();
+        expect(game.gamewinner).toBe(player1);
 
       });
 
@@ -147,7 +160,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('lizard');
         player2.picks('scissors');
-        expect(game.winner()).toBe(player2);
+        game.winner();
+        expect(game.gamewinner).toBe(player2);
 
       });
 
@@ -159,7 +173,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('lizard');
         player2.picks('paper');
-        expect(game.winner()).toBe(player1);
+        game.winner();
+        expect(game.gamewinner).toBe(player1);
 
       });
 
@@ -167,7 +182,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('lizard');
         player2.picks('rock');
-        expect(game.winner()).toBe(player2);
+        game.winner();
+        expect(game.gamewinner).toBe(player2);
 
       });
 
@@ -179,7 +195,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('Spock');
         player2.picks('rock');
-        expect(game.winner()).toBe(player1);
+        game.winner();
+        expect(game.gamewinner).toBe(player1);
 
       });
 
@@ -187,7 +204,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('Spock');
         player2.picks('paper');
-        expect(game.winner()).toBe(player2);
+        game.winner();
+        expect(game.gamewinner).toBe(player2);
 
       });
 
@@ -199,7 +217,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('Spock');
         player2.picks('scissors');
-        expect(game.winner()).toBe(player1);
+        game.winner();
+        expect(game.gamewinner).toBe(player1);
 
       });
 
@@ -207,7 +226,8 @@ describe("Rock-Paper-Scissors", function() {
 
         player1.picks('Spock');
         player2.picks('lizard');
-        expect(game.winner()).toBe(player2);
+        game.winner();
+        expect(game.gamewinner).toBe(player2);
 
       });
 
@@ -232,6 +252,16 @@ describe("Rock-Paper-Scissors", function() {
 
       });
 
+    });
+
+  });
+
+  describe('victory messages', function() {
+
+    it("should return the winner's name, the verb and the loser's name", function() {
+      player1.picks('scissors');
+      player2.picks('rock');
+      expect(game.winningMessage()).toEqual("Alex's rock crushes Mario's scissors");
     });
 
   });

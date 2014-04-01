@@ -8,8 +8,6 @@ Spock: ["scissors", "rock"]
 }
 
 
-
-
 function Player(name) {
   this.name = name;
 }
@@ -28,14 +26,36 @@ Game.prototype.samePick = function() {
 }
 
 Game.prototype.winner = function() {
-	if(this.samePick()) return null
+	
+  if(this.samePick()) return null
 	if(this.Pairs[this.player1.pick].indexOf(this.player2.pick) !== -1) {
-  	return this.player1;
+     this.gamewinner = this.player1
+     this.gameloser = this.player2
   } else {
-  	return this.player2;
+  	 this.gamewinner = this.player2
+     this.gameloser = this.player1
   }
 }
-
 // other option but more long-winded:
 // if(this.Pairs[this.player1.pick][0] || this.Pairs[this.player1.pick][1] === this.player2.pick {
+
+Game.prototype.weaponMessage = {
+  rock:     { scissors: 'crushes', lizard: 'squashes' },
+  paper:    { rock: 'covers', Spock: 'disproves' },
+  scissors: { paper: 'cuts', lizard: 'decapitates' },
+  lizard:   { Spock: 'poisons', paper: 'eats' },
+  Spock:    { rock: 'vaporises', scissors: 'smashes' }
+}
+
+
+Game.prototype.winningMessage = function() {
+  var message;
+  if(this.winner() === null) {
+    message = "It's a draw!"
+  } else {
+    message = this.gamewinner.name + "'s " + this.gamewinner.pick + ' ' + this.weaponMessage[this.gamewinner.pick][this.gameloser.pick] + ' ' + this.gameloser.name + "'s " + this.gameloser.pick 
+  }
+  return message
+}
+
 
