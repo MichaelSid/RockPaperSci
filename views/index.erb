@@ -1,0 +1,80 @@
+<!doctype>
+<html>
+  <head>
+    <title>Rock Paper Scissors Lizard Spock</title>
+    <style>
+    body {
+      font-family: 'Helvetica Neue';
+      margin: 15px 0 0 30px;
+    }
+
+    .choices img {
+      width: 15%;
+      margin-right: 2.5%;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: 1s all ease;
+    }
+
+    .choices img:hover {
+      opacity: 1;
+    }
+
+    h2, h3 {
+      text-transform: capitalize;
+    }
+
+    #results {
+    	list-style: none;
+    }
+
+    #results li {
+    	background: #999;
+    	color: #fff;
+    	font-size: 24px;
+    	border-radius: 8px;
+    	padding: 5px;
+    	width: 80%;
+    	margin-bottom: 10px;
+    	display: none;
+    }
+
+
+    </style>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors Lizard Spock</h1>
+    <div class='choices'>
+      <img src="images/Rock.png" data-pick="rock">
+      <img src="images/Paper.png" data-pick="paper">
+      <img src="images/Scissors.png" data-pick="scissors">
+      <img src="images/Lizard.png" data-pick="lizard">
+      <img src="images/Spock.png" data-pick="Spock">
+    </div>
+    <ul id="results"></ul>
+
+    <script src='lib/RockPaperScissors.js'></script>
+    <!-- // <script src='lib/Game.js'></script> -->
+    <script src='http://code.jquery.com/jquery-2.1.0.min.js'></script> 
+    <script>
+      $(document).ready(function(){
+        var p1 = new Player('Human');
+        var p2 = new Player('Computer');
+        var game = new Game(p1, p2);
+
+        $('.choices img').on('click', function(){
+          p1.picks($(this).data('pick'));
+          p2.picks(['Spock','rock','paper','scissors','lizard'][Math.floor(Math.random() * 5)]);
+
+          var latestResult = $('<li>' + game.winningMessage() + '</li>');
+          latestResult.prependTo('#results').slideDown();
+
+          $('#results li:nth-child(5)').fadeOut(function(){
+          	$(this).remove();
+          })
+
+        });
+      })
+    </script>
+  </body>
+</html>
