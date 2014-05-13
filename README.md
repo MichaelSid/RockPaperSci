@@ -15,4 +15,4 @@ This task was my first time using JS. The full stack includes:
 * Test-driven-development with RSpec & Jasmine
 
 
-Play with right [here](http://hysterical-castle-3897.herokuapp.com/)!
+Play with it right [here](http://hysterical-castle-3897.herokuapp.com/)!
