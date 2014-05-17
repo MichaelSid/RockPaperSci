@@ -1,4 +1,4 @@
-RockPaperSci
+RockPaperSci  
 ============
 
 This was a fun challenge I did during week 7 of my course at Makers Academy.
